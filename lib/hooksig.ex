@@ -1,9 +1,9 @@
-defmodule Dedent do
+defmodule Hooksig do
   @moduledoc """
-  Dedent keeps the contexts that define your domain
-  and business logic.
+  Hooksig is a suite of webhook debugging tools for Stripe, Paddle,
+  Lemon Squeezy, Polar, and other payment platforms.
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
+  Provider-specific verification lives in `Hooksig.Stripe`,
+  `Hooksig.Paddle`, `Hooksig.LemonSqueezy`, etc.
   """
 end
