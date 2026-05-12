@@ -1,4 +1,4 @@
-defmodule Dedent.Application do
+defmodule Hooksig.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -8,18 +8,18 @@ defmodule Dedent.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      DedentWeb.Telemetry,
-      {DNSCluster, query: Application.get_env(:dedent, :dns_cluster_query) || :ignore},
-      {Phoenix.PubSub, name: Dedent.PubSub},
-      # Start a worker by calling: Dedent.Worker.start_link(arg)
-      # {Dedent.Worker, arg},
+      HooksigWeb.Telemetry,
+      {DNSCluster, query: Application.get_env(:hooksig, :dns_cluster_query) || :ignore},
+      {Phoenix.PubSub, name: Hooksig.PubSub},
+      # Start a worker by calling: Hooksig.Worker.start_link(arg)
+      # {Hooksig.Worker, arg},
       # Start to serve requests, typically the last entry
-      DedentWeb.Endpoint
+      HooksigWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Dedent.Supervisor]
+    opts = [strategy: :one_for_one, name: Hooksig.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -27,7 +27,7 @@ defmodule Dedent.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    DedentWeb.Endpoint.config_change(changed, removed)
+    HooksigWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

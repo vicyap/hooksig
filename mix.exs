@@ -1,9 +1,9 @@
-defmodule Dedent.MixProject do
+defmodule Hooksig.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :dedent,
+      app: :hooksig,
       version: "0.1.0",
       elixir: "~> 1.20.0-rc.4",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -16,12 +16,9 @@ defmodule Dedent.MixProject do
     ]
   end
 
-  # Configuration for the OTP application.
-  #
-  # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Dedent.Application, []},
+      mod: {Hooksig.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -32,13 +29,9 @@ defmodule Dedent.MixProject do
     ]
   end
 
-  # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
-  # Specifies your project dependencies.
-  #
-  # Type `mix help deps` for examples and options.
   defp deps do
     [
       {:phoenix, "~> 1.8.7"},
@@ -63,20 +56,14 @@ defmodule Dedent.MixProject do
     ]
   end
 
-  # Aliases are shortcuts or tasks specific to the current project.
-  # For example, to install project dependencies and perform other setup tasks, run:
-  #
-  #     $ mix setup
-  #
-  # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["compile", "tailwind dedent", "esbuild dedent"],
+      "assets.build": ["compile", "tailwind hooksig", "esbuild hooksig"],
       "assets.deploy": [
-        "tailwind dedent --minify",
-        "esbuild dedent --minify",
+        "tailwind hooksig --minify",
+        "esbuild hooksig --minify",
         "phx.digest"
       ],
       precommit: ["compile --warnings-as-errors", "deps.unlock --unused", "format", "test"]

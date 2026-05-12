@@ -1,4 +1,4 @@
-defmodule DedentWeb.CoreComponents do
+defmodule HooksigWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -482,9 +482,9 @@ defmodule DedentWeb.CoreComponents do
     # uncommenting and adjusting the following code:
 
     # if count = opts[:count] do
-    #   Gettext.dngettext(DedentWeb.Gettext, "errors", msg, msg, count, opts)
+    #   Gettext.dngettext(HooksigWeb.Gettext, "errors", msg, msg, count, opts)
     # else
-    #   Gettext.dgettext(DedentWeb.Gettext, "errors", msg, opts)
+    #   Gettext.dgettext(HooksigWeb.Gettext, "errors", msg, opts)
     # end
 
     Enum.reduce(opts, msg, fn {key, value}, acc ->

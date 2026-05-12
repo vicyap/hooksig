@@ -65,7 +65,7 @@ ENV MIX_ENV="prod"
 WORKDIR "/app"
 RUN chown nobody /app
 
-COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/dedent ./
+COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/hooksig ./
 
 USER nobody
 

@@ -1,16 +1,16 @@
-# fly.toml app configuration file generated for dedent-app on 2026-05-11T22:00:33-07:00
+# fly.toml app configuration file for hooksig
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'dedent-app'
+app = 'hooksig'
 primary_region = 'lax'
 
 [build]
   dockerfile = 'Dockerfile'
 
 [env]
-  PHX_HOST = 'dedent-app.fly.dev'
+  PHX_HOST = 'hooksig.fly.dev'
 
 [http_service]
   internal_port = 4000
@@ -21,7 +21,6 @@ primary_region = 'lax'
   processes = ['app']
 
 [[vm]]
-  memory = '256mb'
+  memory = '512mb'
   cpu_kind = 'shared'
   cpus = 1
-  memory_mb = 256
